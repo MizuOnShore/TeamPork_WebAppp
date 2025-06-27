@@ -43,7 +43,6 @@ export function AuthProvider({ children }) {
     localStorage.setItem("refreshToken", response.refreshToken)
     localStorage.setItem("tokenExpiry", (Date.now() + response.expiresIn * 1000).toString())
 
-    // Store user info (you can expand this based on what your API returns)
     const userInfo = { username, email: response.email || `${username}@example.com` }
     setUser(userInfo)
     localStorage.setItem("user", JSON.stringify(userInfo))
